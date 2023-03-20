@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import SimpleLightbox from "simplelightbox";
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import fetchImage from './js/fetchImageData';
@@ -47,6 +48,8 @@ searchField.addEventListener('submit', onSearchFieldSubmit);
 
 async function onSearchFieldSubmit(evt) {
   evt.preventDefault();
+  Notiflix.Loading.standard();
+  Notiflix.Loading.remove(800);
 
   searchQuery = evt.target.searchQuery.value;
   currentPage = 1;
